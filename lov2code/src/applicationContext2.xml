@@ -7,35 +7,19 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- load the propert file -->
-	<context:property-placeholder
-		location="classpath:sport.properties" />
+
 
 	<bean id="fortune" class="com.lov2code.rahul.HappyFartuneService"></bean>
 
 	<bean id="firstcoach"
-		class="com.lov2code.rahul.FirstCoachTranning">
+		class="com.lov2code.rahul.FirstCoachTranning" scope="prototype">
 		<constructor-arg ref="fortune"></constructor-arg>
 
 	</bean>
 	<bean id="Secondcoach"
 		class="com.lov2code.rahul.SecondCoachTranning">
 		<constructor-arg ref="fortune"></constructor-arg>
-
 	</bean>
-	<bean id="Thirdcoach"
-		class="com.lov2code.rahul.ThirdCoachTranning">
-		<property name="fortueservice" ref="fortune"></property>
-
-
-
-		<property name="EmailAddress" value="${foo.email}"></property>
-		<property name="team" value="${foo.team}"></property>
-		<!-- injact setter literal -->
-		<!-- <property name="EmailAddress" value="rahulyadavhbo@gmail.com"></property> 
-			<property name="team" value="sunrises Delhi,NCR"></property> -->
-	</bean>
-
 
 
 	<!-- <bean id="employee" class="com.howtodoinjava.spring.beans.Employee"></bean> 
